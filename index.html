@@ -773,7 +773,7 @@
 			namevalid.innerHTML = "Enter Your Name *"
 		}
 		else{
-			emailvalid.innerHTML = "";
+			namevalid.innerHTML = "";
 		}
 		email = document.getElementById("email").value;
 		emailvalid = document.getElementById("emailvalid");
@@ -811,7 +811,13 @@
 			}
 			else{
 				numvalid.innerHTML="enter 10 digit number*";
-				$("#submit-form").submit((e)=>{
+				
+			}
+			
+		}
+
+	}
+	$("#submit-form").submit((e)=>{
 		e.preventDefault()
 		$.ajax({
 			url:"https://script.google.com/macros/s/AKfycbzEspCXDceRFzPAJTQM1iq5tdNISuIM-ius3JJby3-Yflorvc4fJSJTecxMvCsu3lr85w/exec",
@@ -828,11 +834,7 @@
 			}
 		})
 	})
-			}
-			
-		}
 
-	}
 	// FOS003390769270
 </script>
 
