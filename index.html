@@ -665,19 +665,25 @@
 			<div class="col-md-6 order-md-last d-flex">
 			  <form id="submit-form" class="bg-light p-4 p-md-5 contact-form">
 				<div class="form-group">
-				  <input type="text"id="fname" class="form-control" name="Name"  placeholder="Your Name" required>
+					<h6 id="namevalid" class="text-danger fw-6"></h6>
+				  <input type="text"id="name" class="form-control" name="Name"  placeholder="Your Name" >
 				</div>
 				<div class="form-group">
-				  <input type="text" class="form-control" name="Email" placeholder="Your Email" required>
+					<h6 id="emailvalid" class="text-danger fw-6"></h6>
+
+				  <input type="text" class="form-control" id="email" name="Email" placeholder="Your Email" >
 				</div>
 				<div class="form-group">
-				  <input type="text" class="form-control" name="Subject" placeholder="Subject">
+					<h6 id="numvalid" class="text-danger fw-6"></h6>
+
+				  <input type="text" class="form-control" id="num" name="Number" placeholder="Number">
 				</div>
 				<div class="form-group">
 				  <textarea name="" id="" cols="30" rows="7" name="Message" class="form-control" placeholder="Message"></textarea>
 				</div>
 				<div class="form-group">
-				  <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+				  <input type="" value="Send Message" onclick="validation()" class="btn btn-primary py-3 px-5">
+				  <!-- <button onclick="validation()" class="btn btn-primary py-3 px-5">send message</button> -->
 				</div>
 			  </form>
 			
@@ -760,7 +766,53 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
   <script>
-	$("#submit-form").submit((e)=>{
+	function validation(){
+		name = document.getElementById("name").value;
+		namevalid = document.getElementById("namevalid");
+
+		if (name.trim() === ""){
+			namevalid.innerHTML = "Enter Your Name *"
+		}
+		else{
+			emailvalid.innerHTML = "";
+		}
+		email = document.getElementById("email").value;
+		emailvalid = document.getElementById("emailvalid");
+		emailptn = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+		if (email.trim() === ""){
+			emailvalid.innerHTML = "enter email*";
+
+			
+		}
+		else{
+
+			emailvalid.innerHTML = "";
+			if (emailptn.test(email)){
+				emailvalid.innerHTML="";
+			}
+			else{
+				emailvalid.innerHTML="enter proper email";
+			}
+			
+		}
+
+
+		num = document.getElementById("num").value;
+		numlvalid = document.getElementById("numvalid");
+		if (num.trim() === ""){
+			numvalid.innerHTML = "enter your phone number *";
+
+			
+		}
+		else{
+			numlvalid.innerHTML = "";
+			if (/^\d{10}$/.test(num)){
+				numvalid.innerHTMl="";
+
+			}
+			else{
+				numvalid.innerHTML="enter 10 digit number*";
+				$("#submit-form").submit((e)=>{
 		e.preventDefault()
 		$.ajax({
 			url:"https://script.google.com/macros/s/AKfycbzEspCXDceRFzPAJTQM1iq5tdNISuIM-ius3JJby3-Yflorvc4fJSJTecxMvCsu3lr85w/exec",
@@ -777,6 +829,12 @@
 			}
 		})
 	})
+			}
+			
+		}
+
+	}
+	// FOS003390769270
 </script>
 
   <script src="js/jquery.min.js"></script>
