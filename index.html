@@ -36,13 +36,13 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link "><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
-	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
-	          <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
- 	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+	          <li class="nav-item"><a href="#home-section" class="nav-link " onclick="closeNav()"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#about-section" class="nav-link"onclick="closeNav()"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#resume-section" class="nav-link"onclick="closeNav()"><span>Resume</span></a></li>
+	          <li class="nav-item"><a href="#services-section" class="nav-link"onclick="closeNav()"><span>Services</span></a></li>
+	          <li class="nav-item"><a href="#skills-section" class="nav-link"onclick="closeNav()"><span>Skills</span></a></li>
+	          <li class="nav-item"><a href="#projects-section" class="nav-link"onclick="closeNav()"><span>Projects</span></a></li>
+ 	          <li class="nav-item"><a href="#contact-section" class="nav-link"onclick="closeNav()"><span>Contact</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -765,6 +765,14 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
   <script>
+	  function closeNav() {
+            // Check if the navigation is expanded
+            if ($('.navbar-collapse').hasClass('show')) {
+                // Close the navigation menu
+                $('.navbar-toggler').click();
+            }
+        }
+ 
 	function validation(){
 		name = document.getElementById("name").value;
 		namevalid = document.getElementById("namevalid");
